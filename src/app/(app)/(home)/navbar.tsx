@@ -80,19 +80,19 @@ export const Navbar = () => {
                     </NavbarItem> 
                 ))}
             </div>
-            <div className="hidden lg:flex">
+            <div className="hidden lg:flex items-center space-x-4">
 
                 <Button 
                 asChild 
                 variant="secondary"
-                className="border-l border-t-0 border-b-0 border-r-0 px-12 h-full rounded-none bg-white hover:bg-gray-400 hover:text-black transition-colors text-lg">
+                className="border-black border-l border-t border-b border-r px-6 h-12 rounded-full bg-white hover:bg-gray-100 hover:text-black transition-colors text-lg">
                     <Link href="/sign-in">
                         Log in
                     </Link>
                 </Button>
                 <Button 
                 asChild
-                className="border-l border-t-0 border-b-0 border-r-0 px-12 h-full rounded-none bg-black gray:bg-pink-400 hover:text-black transition-colors text-lg">
+                className="border-black border-l border-t border-b border-r px-6 h-12 rounded-full bg-black hover:bg-gray-800 hover:text-white transition-colors text-lg mr-4">
                     <Link href="/sign-up">
                         Start Selling
                     </Link>
