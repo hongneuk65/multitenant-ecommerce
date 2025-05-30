@@ -2,6 +2,7 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload';
 import { Category } from "@/payload-types/";
 
+import { CustomCategory } from "./types";
 import { Footer } from "./footer";
 import { Navbar } from "./navbar";
 import { SearchFilter } from "./search-filter";
@@ -24,25 +25,26 @@ const Layout = async ({ children } : Props) => {
             exists: false,
           },
         },
+        sort:"name"
     });
 
-    const formattedDate = data.docs.map((doc) => ({
+    const formattedData: CustomCategory[] = data.docs.map((doc) => ({
         ...doc,
         subcategories: (doc.subcategories?.docs ?? []).map((doc) => ({
-        ...(doc as  Category),
+        ...(doc as Category),
         subcategories: undefined,
         }))
     }));
 
     console.log({
         data,
-        formattedDate
+        formattedData
     })
 
     return (
         <div className="flex flex-col min-h-screen">
             <Navbar />
-            <SearchFilter data={formattedDate} />
+            <SearchFilter data={formattedData} />
             <div className="flex-1 bg-[#F4F4F0]">
                 {children} 
             </div>
